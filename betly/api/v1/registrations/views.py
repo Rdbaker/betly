@@ -6,6 +6,7 @@ from webargs import fields
 from webargs.flaskparser import use_args
 from werkzeug.exceptions import BadRequest
 
+from betly.err_constants import Errors
 from betly.api.v1.users.models import User, Account
 from betly.api.v1.users.schema import UserSchema
 
@@ -25,9 +26,9 @@ REGISTRATION_ARGS = {
 def sign_up(args):
     acct = Account.query.filter(Account.email == args['email']).first()
     if acct is not None:
-        raise BadRequest('That email is taken')
+        raise BadRequest(Errors.EMAIL_TAKEN)
     if args['password'] != args['confirmpw']:
-        raise BadRequest('Passwords must match')
+        raise BadRequest(Errors.PASSWORD_MATCH)
     acct = Account.create(email=args['email'], password=args['password'])
     user = acct.user
     login_user(user)
