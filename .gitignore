@@ -51,8 +51,5 @@ node_modules
 # test cache
 tests/.cache
 
-# Compiled assets
-betly/static/dest/
-
 # SublimeText Config
 *.sublime-project
