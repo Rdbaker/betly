@@ -50,3 +50,6 @@ node_modules
 
 # test cache
 tests/.cache
+
+# SublimeText Config
+*.sublime-project
