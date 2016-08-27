@@ -1,0 +1,30 @@
+{
+  "name": "betly",
+  "version": "1.0.0",
+  "description": "Betting software!",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rdbaker/betly.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rdbaker/betly/issues"
+  },
+  "homepage": "https://github.com/Rdbaker/betly#readme",
+  "devDependencies": {
+    "coffeeify": "^2.0.1",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.3.1",
+    "require-dir": "^0.3.0"
+  }
+}
