@@ -17,7 +17,7 @@ def list_bets(args=None):
     return BET_SCHEMA.dumps(bets).data
 
 
-@blueprint.route('/create', methods=['POST'], strict_slashes=False)
+@blueprint.route('/', methods=['POST'], strict_slashes=False)
 def create_bet():
     bet_data = BET_SCHEMA.load(request.json)
     bet_data.data['organizer'] = current_user

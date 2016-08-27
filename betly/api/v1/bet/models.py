@@ -40,7 +40,7 @@ class Bet(Model):
 
 
 class UserBet(Model):
-    """Tihs is an entry for a user into a bet"""
+    """Thsi is an entry for a user into a bet"""
 
     __tablename__ = "user_bet"
 
