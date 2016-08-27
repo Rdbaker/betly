@@ -1,8 +1,8 @@
 var env = (process.env.ENV || 'local').toLowerCase();
 
-// front end code source dir
-var src = './apio/static/src/';
-var dest = './apio/static/dest/';
+// Source and destination dirs
+var src = './betly/static/src/';
+var dest = './betly/static/dest/';
 
 module.exports = {
   env: {
@@ -23,9 +23,9 @@ module.exports = {
   },
 
   browserify: {
-    src: src + 'coffee/app.coffee',
+    src: src + 'js/app.js',
     dest: dest + 'js/',
     debug: (env !== 'production'),
-    outputName: 'app.js'
+    inputName: 'app.js'
   },
 }
