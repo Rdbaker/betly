@@ -52,4 +52,4 @@ node_modules
 tests/.cache
 
 # SublimeText Config
-*.sublime-project
+*.sublime-*
