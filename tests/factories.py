@@ -3,7 +3,7 @@
 from factory import PostGenerationMethodCall, Sequence
 from factory.alchemy import SQLAlchemyModelFactory
 
-from betly.database import db
+from betly.models import db
 from betly.api.v1.users.models import User
 
 
@@ -20,7 +20,6 @@ class BaseFactory(SQLAlchemyModelFactory):
 class UserFactory(BaseFactory):
     """User factory."""
 
-    username = Sequence(lambda n: 'user{0}'.format(n))
     email = Sequence(lambda n: 'user{0}@example.com'.format(n))
     password = PostGenerationMethodCall('set_password', 'example')
     active = True

@@ -5,7 +5,7 @@ import pytest
 from webtest import TestApp
 
 from betly.app import create_app
-from betly.database import db as _db
+from betly.models import db as _db
 from betly.settings import TestConfig
 
 from .factories import UserFactory
