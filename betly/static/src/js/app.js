@@ -1,4 +1,11 @@
+/**
+ * Main application initialization
+ *
+ */
+
+import TestComponent from "./example/test.jsx"
+
+// Initialize on Document Ready
 document.addEventListener('DOMContentLoaded', () => {
-  a = <nav></nav>
-  alert("swagggg")
+  alert(TestComponent)
 })
