@@ -11,7 +11,7 @@ from flask_script import Command, Manager, Option, Server, Shell
 from flask_script.commands import Clean, ShowUrls
 
 from betly.app import create_app
-from betly.database import db
+from betly.models import db
 from betly.settings import DevConfig, ProdConfig
 import betly.models as models
 
