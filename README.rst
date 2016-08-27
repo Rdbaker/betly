@@ -83,3 +83,15 @@ This will generate a new migration script. Then run:
 To apply the migration.
 
 For a full migration command reference, run ``python manage.py db --help``.
+
+
+Compile Static Assets
+----------
+
+Install requirements ::
+
+  npm install
+
+Compile Static Assets ::
+
+  ./node_modules/gulp/bin/gulp.js
