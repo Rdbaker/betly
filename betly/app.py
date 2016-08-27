@@ -38,6 +38,7 @@ def register_blueprints(app):
     app.register_blueprint(public.views.blueprint)
     app.register_blueprint(sessions.views.blueprint)
     app.register_blueprint(registrations.views.blueprint)
+    app.register_blueprint(users.views.blueprint)
     return None
 
 def register_error_handlers(app):
