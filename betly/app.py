@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """The app module, containing the app factory function."""
+import json
+
 from flask import Flask, jsonify
+from marshmallow.exceptions import ValidationError
 from werkzeug.exceptions import default_exceptions, HTTPException
 
 from betly import public
@@ -44,6 +47,13 @@ def register_blueprints(app):
 
 def register_error_handlers(app):
     """Return JSON errors to the user."""
+    @app.errorhandler(ValidationError)
+    def handle_marshmallow_validation_error(ex):
+        import ipdb; ipdb.set_trace()
+        response = jsonify(message="422: Unprocessable Entity", description=ex.messages)
+        response.status_code = 422
+        return response
+
     def make_json_error(ex):
         response = jsonify(message=str(ex), description=ex.description)
         response.status_code = (ex.code if isinstance(ex, HTTPException) else 500)

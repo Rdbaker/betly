@@ -7,3 +7,4 @@ class Errors(object):
     USER_NOT_FOUND = ('email-not-found', 'No user with that email exists')
     INCORRECT_PW = ('incorrect-password', 'Incorrect password')
     BET_NAME_TAKEN = ('bet-name-taken', 'That bet name is already taken')
+    BET_NAME_MISSING = ('bet-name-missing', 'Bet name is a required field')

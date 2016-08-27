@@ -18,9 +18,8 @@ def list_bets(args=None):
 
 
 @blueprint.route('/create', methods=['POST'], strict_slashes=False)
-@login_required
 def create_bet():
-    bet_data = BET_SCHEMA().load(request.json())
+    bet_data = BET_SCHEMA.load(request.json)
     bet_data.data['organizer'] = current_user
     Bet.create(**bet_data.data)
     return bet_data.data
