@@ -47,3 +47,6 @@ env/
 
 # NPM libraries
 node_modules
+
+# test cache
+tests/.cache
