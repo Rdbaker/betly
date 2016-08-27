@@ -1,4 +1,4 @@
-"""empty message
+"""Creates the bet table and associates it with users.
 
 Revision ID: 8b9f5b081137
 Revises: 19cabd29fb71
