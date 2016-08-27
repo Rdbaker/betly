@@ -6,7 +6,7 @@ from werkzeug.exceptions import default_exceptions, HTTPException
 from betly import public
 from betly.extensions import bcrypt, cache, db, debug_toolbar, login_manager, migrate
 from betly.settings import ProdConfig
-from betly.api.v1 import users, sessions, registrations
+from betly.api.v1 import users, sessions, registrations, bet
 
 
 def create_app(config_object=ProdConfig):
@@ -38,6 +38,7 @@ def register_blueprints(app):
     app.register_blueprint(public.views.blueprint)
     app.register_blueprint(sessions.views.blueprint)
     app.register_blueprint(registrations.views.blueprint)
+    app.register_blueprint(bet.views.blueprint)
     return None
 
 def register_error_handlers(app):

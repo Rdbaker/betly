@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""User models."""
+"""Bet models."""
 import datetime as dt
 import uuid
 
@@ -16,7 +16,7 @@ class Bet(Model):
     __tablename__ = 'bet'
 
     guid = Column(UUID(as_uuid=True), nullable=False, primary_key=True, default=uuid.uuid4)
-    organizer_guid = relationship(User)
+    organizer = reference_col('user')
     name = Column(db.Text(), nullable=False)
     url_name = Column(db.String(100), nullable=False)
     description = Column(db.Text(), nullable=True)
@@ -33,6 +33,7 @@ class Bet(Model):
         """Create instance."""
         url_name = name.lower().replace(' ', '-')
         db.Model.__init__(self, name=name, url_name=url_name, **kwargs)
+
 
 
 class UserBet(Model):
