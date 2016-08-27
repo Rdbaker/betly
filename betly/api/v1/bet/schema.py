@@ -8,6 +8,7 @@ class BetSchema(Schema):
     created_at = fields.DateTime(dump_only=True)
     organizer = fields.Nested(UserSchema)
     name = fields.String()
+    description = fields.String()
 
     class Meta:
         type_ = 'bet'
