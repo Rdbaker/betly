@@ -15,6 +15,7 @@ from betly.models import db
 from betly.settings import DevConfig, ProdConfig
 import betly.models as models
 
+
 CONFIG = ProdConfig if os.environ.get('BETLY_ENV') == 'prod' else DevConfig
 HERE = os.path.abspath(os.path.dirname(__file__))
 TEST_PATH = os.path.join(HERE, 'tests')

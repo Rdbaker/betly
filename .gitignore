@@ -55,4 +55,4 @@ tests/.cache
 betly/static/dest/
 
 # SublimeText Config
-*.sublime-project
+*.sublime-*

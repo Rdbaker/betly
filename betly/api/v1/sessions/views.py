@@ -6,6 +6,7 @@ from webargs import fields
 from webargs.flaskparser import use_args
 from werkzeug.exceptions import BadRequest, NotFound
 
+from betly.err_constants import Errors
 from betly.api.v1.users.models import User, Account
 from betly.api.v1.users.schema import UserSchema
 
@@ -24,9 +25,9 @@ SESSION_ARGS = {
 def sign_in(args):
     acct = Account.query.filter(Account.email == args['email']).first()
     if acct is None:
-        raise NotFound('No user with that email exists')
+        raise NotFound(Errors.USER_NOT_FOUND)
     if not acct.check_password(args['password']):
-        raise BadRequest('Incorrect password')
+        raise BadRequest(Errors.INCORRECT_PW)
     login_user(acct.user)
     return USER_SCHEMA.dumps(acct.user).data
 
