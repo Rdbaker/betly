@@ -17,8 +17,8 @@ class Bet(Model):
 
     guid = Column(UUID(as_uuid=True), nullable=False, primary_key=True, default=uuid.uuid4)
     organizer = reference_col('user')
-    name = Column(db.Text(), nullable=False)
-    url_name = Column(db.String(100), nullable=False)
+    name = Column(db.Text(), nullable=False, unique=True)
+    url_name = Column(db.String(100), nullable=False, unique=True)
     description = Column(db.Text(), nullable=True)
     bet_type = Column(db.Text(), nullable=True)
     options = Column(db.Text(), nullable=True)
@@ -31,9 +31,12 @@ class Bet(Model):
 
     def __init__(self, name, **kwargs):
         """Create instance."""
-        url_name = name.lower().replace(' ', '-')
+        url_name = self.create_url_name(name)
         db.Model.__init__(self, name=name, url_name=url_name, **kwargs)
 
+    @classmethod
+    def create_url_name(cls, bet_name):
+        return bet_name.lower().replace(' ', '-')
 
 
 class UserBet(Model):
