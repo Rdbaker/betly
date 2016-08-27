@@ -18,6 +18,7 @@ def create_app(config_object=ProdConfig):
     app.config.from_object(config_object)
     register_extensions(app)
     register_blueprints(app)
+    register_error_handlers(app)
     return app
 
 
@@ -46,5 +47,5 @@ def register_error_handlers(app):
         response.status_code = (ex.code if isinstance(ex, HTTPException) else 500)
         return response
 
-    for code in default_exceptions.iterkeys():
+    for code in default_exceptions:
         app.error_handler_spec[None][code] = make_json_error
