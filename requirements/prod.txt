@@ -30,3 +30,6 @@ Flask-DebugToolbar==0.10.0
 
 # marshallable objects
 marshmallow==2.7.1
+
+# easy arg parsing for urls
+webargs==1.3.4
