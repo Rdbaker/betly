@@ -14,7 +14,9 @@ def create_app(config_object=ProdConfig):
 
     :param config_object: The configuration object to use.
     """
-    app = Flask(__name__, static_folder=config_object.STATIC_FOLDER)
+    app = Flask(__name__,
+                static_folder=config_object.STATIC_FOLDER,
+                static_url_path=config_object.STATIC_URL_PATH)
     app.config.from_object(config_object)
     register_extensions(app)
     register_blueprints(app)

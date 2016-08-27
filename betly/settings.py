@@ -9,6 +9,7 @@ BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 class Config(object):
     """Base configuration."""
 
+    STATIC_URL_PATH = '/static'
     STATIC_FOLDER = os.path.join(BASE_DIR, 'static', 'dest')
     SECRET_KEY = os.environ.get('BETLY_SECRET', 'secret-key')  # TODO: Change me
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
