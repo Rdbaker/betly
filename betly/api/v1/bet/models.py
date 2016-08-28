@@ -16,7 +16,8 @@ class Bet(Model):
     __tablename__ = 'bet'
 
     guid = Column(UUID(as_uuid=True), nullable=False, primary_key=True, default=uuid.uuid4)
-    organizer = reference_col('user')
+    organizer_id = reference_col('user')
+    organizer = relationship('User', backref='bets_organized')
     name = Column(db.Text(), nullable=False, unique=True)
     url_name = Column(db.String(100), nullable=False, unique=True)
     description = Column(db.Text(), nullable=True)

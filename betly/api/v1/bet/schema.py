@@ -23,9 +23,9 @@ class BetSchema(Schema):
         if not value:
             raise BadRequest(Errors.BET_NAME_MISSING)
         candidate_url_name = Bet.create_url_name(value)
-        bet = Bet.query.filter(Bet.url_name == candidate_url_name)
+        bet = Bet.query.filter(Bet.url_name == candidate_url_name).first()
         if bet is not None:
             raise BadRequest(Errors.BET_NAME_TAKEN)
-        bet = Bet.query.filter(Bet.name == value)
+        bet = Bet.query.filter(Bet.name == value).first()
         if bet is not None:
             raise BadRequest(Errors.BET_NAME_TAKEN)
