@@ -23,7 +23,6 @@ def list_bets(args=None):
 def create_bet():
     bet_data = BET_SCHEMA.load(request.json)
     bet_data.data['organizer'] = current_user
-    import ipdb; ipdb.set_trace()
     bet = Bet.create(**bet_data.data)
     return BET_SCHEMA.dumps(bet).data
 
