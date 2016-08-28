@@ -9,3 +9,4 @@ class Errors(object):
     BET_NAME_TAKEN = ('bet-name-taken', 'That bet name is already taken')
     BET_NAME_MISSING = ('bet-name-missing', 'Bet name is a required field')
     BET_NOT_FOUND = ('bet-not-found', 'No bet with that name exists')
+    BET_ALREADY_JOINED = ('bet-already-joined', 'You already joined that bet')

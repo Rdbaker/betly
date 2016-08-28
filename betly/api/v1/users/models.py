@@ -61,3 +61,7 @@ class User(UserMixin, Model):
     def __repr__(self):
         """Represent instance as a unique string."""
         return '<User({email!r})>'.format(email=self.email)
+
+    @property
+    def bets_as_participant(self):
+        return [ub.bet for ub in self.user_bets]
