@@ -48,6 +48,7 @@ class User(UserMixin, Model):
     is_admin = Column(db.Boolean(), default=False)
     account_id = Column(db.Integer, db.ForeignKey('account.id'))
     account = relationship('Account', back_populates='user')
+    user_bets = relationship('UserBet', backref='user', cascade='delete')
 
     def get_id(self):
         """Return a unique identifier for this user."""

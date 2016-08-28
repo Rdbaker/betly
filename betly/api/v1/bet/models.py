@@ -27,6 +27,7 @@ class Bet(Model):
     bet_status = Column(db.Text(), nullable=True)
     outcome_option_value = Column(db.Text(), nullable=True)
     created_at = Column(db.DateTime, nullable=False, default=dt.datetime.utcnow)
+    user_bets = relationship('UserBet', backref='bet', cascade='delete')
 
     deleted_at = Column(db.DateTime, nullable=True, default=dt.datetime.utcnow)
 

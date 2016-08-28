@@ -9,3 +9,5 @@ class Errors(object):
     BET_NAME_TAKEN = ('bet-name-taken', 'That bet name is already taken')
     BET_NAME_MISSING = ('bet-name-missing', 'Bet name is a required field')
     BET_NOT_FOUND = ('bet-not-found', 'No bet with that name exists')
+    BAD_GUID = ('bad-guid', 'Nothing with that ID exists')
+    NOT_BET_ORGANIZER = ('not-bet-organizer', 'You can\'t do that if you\'re not the bet organizer')
