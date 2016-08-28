@@ -51,7 +51,6 @@ def register_error_handlers(app):
     """Return JSON errors to the user."""
     @app.errorhandler(ValidationError)
     def handle_marshmallow_validation_error(ex):
-        import ipdb; ipdb.set_trace()
         response = jsonify(message="422: Unprocessable Entity", description=ex.messages)
         response.status_code = 422
         return response
