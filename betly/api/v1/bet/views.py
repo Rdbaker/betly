@@ -27,7 +27,7 @@ def create_bet():
     return BET_SCHEMA.dumps(bet).data
 
 
-@blueprint.route('/<string:name>/user', methods=['POST'], strict_slashes=False)
+@blueprint.route('/<string:name>/users/me', methods=['POST'], strict_slashes=False)
 @login_required
 def join_bet(name):
     bet = Bet.query.filter(Bet.name == name)
