@@ -13,6 +13,7 @@ class BetSchema(Schema):
     organizer = fields.Nested(UserSchema, dump_only=True)
     name = fields.String(required=True)
     description = fields.String()
+    guid = fields.UUID()
 
     class Meta:
         type_ = 'bet'
