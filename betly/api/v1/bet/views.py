@@ -61,9 +61,18 @@ def destroy_bet(uid_hex):
         raise Forbidden(Errors.NOT_BET_ORGANIZER)
 
 
-@blueprint.route('/<string:uid_hex>/users/me', methods=['POST'], strict_slashes=False)
+@blueprint.route('/<string:uid_hex>/participants/me', methods=['POST'], strict_slashes=False)
 @login_required
-def join_bet(uid_hex):
-    bet = get_bet_from_guid(uid_hex)
-    ub = UserBet.create(user=current_user, bet=bet)
-    return BET_SCHEMA.dumps(bet).data
+def join_bet(name):
+    # make sure the bet exists
+    bet = Bet.query.filter(Bet.name == name).first()
+    if bet is None:
+        raise NotFound(Errors.BET_NOT_FOUND)
+
+    # see if a user <-> bet association already exists
+    ub = UserBet.query.filter(UserBet.user==current_user, UserBet.bet==bet).first()
+    if ub is not None:
+        raise BadRequest(Errors.BET_ALREADY_JOINED)
+    else:
+        ub = UserBet.create(user=current_user, bet=bet)
+        return BET_SCHEMA.dumps(bet).data, 201

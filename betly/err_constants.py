@@ -11,3 +11,4 @@ class Errors(object):
     BET_NOT_FOUND = ('bet-not-found', 'No bet with that name exists')
     BAD_GUID = ('bad-guid', 'Nothing with that ID exists')
     NOT_BET_ORGANIZER = ('not-bet-organizer', 'You can\'t do that if you\'re not the bet organizer')
+    BET_ALREADY_JOINED = ('bet-already-joined', 'You already joined that bet')
